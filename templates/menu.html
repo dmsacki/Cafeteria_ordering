@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Our Menu</h1>
+        <a href="order.html" class="cta-button">View Cart</a>
+    </header>
+
+    <!-- Meal Cards -->
+    <div class="menu-container">
+        <div class="meal-card">
+            <img src="{{ url_for('static', filename='images/meal1.jpg') }}" alt="Meal 1">
+            <h2>Meal 1</h2>
+            <p>Delicious description</p>
+            <button class="add-to-cart" onclick="addToCart('Meal 1')">Add to Cart</button>
+        </div>
+        <!-- Add more meal cards -->
+    </div>
+
+    <!-- JavaScript for Cart -->
+    <script src="{{ url_for('static', filename='js/cart.js') }}"></script>
+</body>
+</html>

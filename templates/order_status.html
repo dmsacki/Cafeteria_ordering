@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Status</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Order Status</h1>
+    </header>
+
+    <div class="order-status">
+        <p>Hi {{ order.name }}, your order status is:</p>
+        <h2>{{ order.status }}</h2>
+
+        <!-- Optionally, show order details -->
+        <p>Pickup Method: {{ order.pickup_method }}</p>
+        <p>Payment Method: {{ order.payment_method }}</p>
+    </div>
+</body>
+</html>
