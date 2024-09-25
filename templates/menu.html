@@ -17,21 +17,24 @@
             <img src="{{ url_for('static', filename='images/meal1.jpg') }}" alt="Meal 1">
             <h2>Ugali Samaki</h2>
             <p>Delicious description</p>
-            <button class="add-to-cart" onclick="addToCart('Meal 1')">Add to Cart</button>
+            <p class="price">Price: 4000.00 TZS</p> <!-- Price Added Here -->
+            <button class="add-to-cart" onclick="addToCart('Ugali Samaki', 5000.00)">Add to Cart</button>
         </div>
         
         <div class="meal-card">
             <img src="{{ url_for('static', filename='images/meal2.jpg') }}" alt="Meal 2">
             <h2>Ndizi Nyama</h2>
             <p>Delicious description</p>
-            <button class="add-to-cart" onclick="addToCart('Meal 2')">Add to Cart</button>
+            <p class="price">Price: 6000.00 TZS</p> <!-- Price Added Here -->
+            <button class="add-to-cart" onclick="addToCart('Ndizi Nyama', 6000.00)">Add to Cart</button>
         </div>
 
         <div class="meal-card">
-            <img src="{{ url_for('static', filename='images/meal3.jpg') }}" alt="Meal 2">
+            <img src="{{ url_for('static', filename='images/meal3.jpg') }}" alt="Meal 3">
             <h2>Chipsi Yai</h2>
             <p>Delicious description</p>
-            <button class="add-to-cart" onclick="addToCart('Meal 3')">Add to Cart</button>
+            <p class="price">Price: 5000.00 TZS</p> <!-- Price Added Here -->
+            <button class="add-to-cart" onclick="addToCart('Chipsi Yai', 5000.00)">Add to Cart</button>
         </div>
         <!-- Add more meal cards -->
     </div>
