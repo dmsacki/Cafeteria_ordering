@@ -1,0 +1,143 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #ff4b2b;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+/* Container for Order and Form */
+.order-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1200px;
+    gap: 30px;
+}
+
+/* Order Summary Section */
+.order-summary {
+    background-color: #fff;
+    padding: 20px;
+    flex: 1; /* Take equal space */
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+#order-list {
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+#order-list li {
+    font-size: 1.2rem;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#order-list li:last-child {
+    border-bottom: none;
+}
+
+#order-total {
+    font-weight: bold;
+    color: #4CAF50;
+    font-size: 1.5rem;
+}
+
+/* Order Form Section */
+.order-form {
+    background-color: #fff;
+    padding: 20px;
+    flex: 1; /* Take equal space */
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.order-form h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.order-form label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.order-form input, .order-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.order-form input:focus, .order-form select:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Button Styling */
+.cta-button {
+    display: inline-block;
+    width: 100%;
+    padding: 15px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #45a049;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .order-container {
+        flex-direction: column;
+    }
+
+    .order-summary, .order-form {
+        width: 100%;
+    }
+}
+ 
