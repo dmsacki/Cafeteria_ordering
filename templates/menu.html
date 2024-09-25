@@ -4,24 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
 </head>
 <body>
     <header>
         <h1>Our Menu</h1>
-        <a href="order.html" class="cta-button">View Cart</a>
     </header>
 
     <!-- Meal Cards -->
     <div class="menu-container">
         <div class="meal-card">
             <img src="{{ url_for('static', filename='images/meal1.jpg') }}" alt="Meal 1">
-            <h2>Meal 1</h2>
+            <h2>Ugali Samaki</h2>
             <p>Delicious description</p>
             <button class="add-to-cart" onclick="addToCart('Meal 1')">Add to Cart</button>
         </div>
+        
+        <div class="meal-card">
+            <img src="{{ url_for('static', filename='images/meal2.jpg') }}" alt="Meal 2">
+            <h2>Ndizi Nyama</h2>
+            <p>Delicious description</p>
+            <button class="add-to-cart" onclick="addToCart('Meal 2')">Add to Cart</button>
+        </div>
+
+        <div class="meal-card">
+            <img src="{{ url_for('static', filename='images/meal3.jpg') }}" alt="Meal 2">
+            <h2>Chipsi Yai</h2>
+            <p>Delicious description</p>
+            <button class="add-to-cart" onclick="addToCart('Meal 3')">Add to Cart</button>
+        </div>
         <!-- Add more meal cards -->
     </div>
+
+    <!-- View Cart Button -->
+    <footer>
+        <a href="{{ url_for('order') }}" class="footer-button">View Cart</a>
+    </footer>
 
     <!-- JavaScript for Cart -->
     <script src="{{ url_for('static', filename='js/cart.js') }}"></script>

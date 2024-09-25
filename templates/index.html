@@ -12,26 +12,26 @@
         <div class="hero-content">
             <h1>Order Your Favorite Meals in Seconds!</h1>
             <p>Quick, delicious, and straight to you</p>
-            <a href="menu.html" class="cta-button">Order Now</a>
+            <a href="{{ url_for('menu') }}" class="cta-button">Order Now</a>
         </div>
     </header>
 
     <!-- Slideshow -->
     <div class="slideshow-container">
         <div class="mySlides fade">
-            <img src="{{ url_for('static', filename='images/meal1.jpg') }}" style="width:100%">
+            <img src="{{ url_for('static', filename='images/meal1.jpg') }}" alt="Meal of the Day">
             <div class="text">Meal of the Day</div>
         </div>
         <div class="mySlides fade">
-            <img src="{{ url_for('static', filename='images/meal2.jpg') }}" style="width:100%">
+            <img src="{{ url_for('static', filename='images/meal2.jpg') }}" alt="Special Offer">
             <div class="text">Special Offer</div>
         </div>
         <div class="mySlides fade">
-            <img src="{{ url_for('static', filename='images/meal3.jpg') }}" style="width:100%">
+            <img src="{{ url_for('static', filename='images/meal3.jpg') }}" alt="Top Pick">
             <div class="text">Top Pick</div>
         </div>
     </div>
-    
+
     <!-- JavaScript for slideshow -->
     <script src="{{ url_for('static', filename='js/slideshow.js') }}"></script>
 </body>
