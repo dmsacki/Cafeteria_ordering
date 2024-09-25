@@ -19,32 +19,54 @@
         <p>Total: <span id="order-total">0.00</span> TZS</p>
     </div>
     
-
     <!-- Order Form -->
-    <div class="order-form">
+    <div class="order-form" style="margin-top: 40px;">
         <h2>Place Your Order</h2>
-        <form action="/place_order" method="POST">
+        <form action="/place_order" method="POST" onsubmit="return validateForm()">
             <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" required pattern="^[A-Za-z\s]{3,}$" title="Please enter your full name (at least 3 characters).">
             
             <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required>
+            <input type="tel" id="phone" name="phone" required pattern="^\d{10}$" title="Please enter a valid phone number (exactly 10 digits).">
             
             <label for="pickup-method">Pickup Method:</label>
             <select id="pickup-method" name="pickup_method" required>
                 <option value="pickup">Pickup</option>
                 <option value="delivery">Delivery</option>
             </select>
-
+           
             <label for="payment-method">Payment Method:</label>
             <select id="payment-method" name="payment_method" required>
                 <option value="m-pesa">M-Pesa</option>
                 <option value="airtel-money">Airtel Money</option>
+                <option value="tigo-pesa">Tigo Pesa</option>
+                <option value="halo-pesa">Halo Pesa</option>
                 <option value="credit-card">Credit Card</option>
             </select>
 
-            <button type="submit" class="cta-button">Place Order</button>
+            <button type="submit" class="cta-button" style="margin-top: 30px;">Place Order</button>
         </form>
+
+        <script>
+        function validateForm() {
+            const name = document.getElementById("name").value;
+            const phone = document.getElementById("phone").value;
+        
+            // Validate name to ensure it's not just spaces
+            if (name.trim() === "") {
+                alert("Please enter your full name.");
+                return false;
+            }
+        
+            // Validate phone number length
+            if (phone.length !== 10) {
+                alert("Phone number must be exactly 10 digits.");
+                return false;
+            }
+        
+            return true; // Allow the form to be submitted
+        }
+        </script>
     </div>
 
     <!-- JavaScript for Cart & Summary -->
