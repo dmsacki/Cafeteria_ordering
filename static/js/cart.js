@@ -1,44 +1,82 @@
 let cart = [];
 
-// Function to load the cart from local storage
+// Load cart from sessionStorage
 function loadCart() {
-    const savedCart = localStorage.getItem('cart');
+    const savedCart = sessionStorage.getItem('cart');
     if (savedCart) {
         cart = JSON.parse(savedCart);
-        updateOrderSummary();
     }
+    updateOrderSummary();
 }
 
-// Function to add items to the cart
+// Add item to the cart
 function addToCart(mealName, mealPrice) {
-    const meal = {
-        name: mealName,
-        price: mealPrice
-    };
+    const existingIndex = cart.findIndex(item => item.name === mealName);
+    
+    if (existingIndex !== -1) {
+        cart[existingIndex].quantity += 1;
+    } else {
+        cart.push({
+            name: mealName,
+            price: mealPrice,
+            quantity: 1
+        });
+    }
 
-    cart.push(meal);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert(`${mealName} has been added to your cart at ${mealPrice.toFixed(2)}`);
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${mealName} added to your cart at TZS ${mealPrice.toFixed(2)}`);
+    updateOrderSummary();
 }
 
-// Function to update the order summary
+// Update cart summary
 function updateOrderSummary() {
     const orderList = document.getElementById('order-list');
     const orderTotal = document.getElementById('order-total');
+    const cartCount = document.getElementById('cart-count');
 
-    orderList.innerHTML = ''; // Clear the list
+    orderList.innerHTML = '';
     let total = 0;
-    
-    // Add each meal in the cart to the order summary
-    cart.forEach(meal => {
+    let totalItems = 0;
+
+    cart.forEach((meal, index) => {
         const listItem = document.createElement('li');
-        listItem.textContent = `${meal.name} - TZS ${meal.price.toFixed(2)}`;
+        listItem.innerHTML = `
+            ${meal.name} (x${meal.quantity}) - TZS ${(meal.price * meal.quantity).toFixed(2)}
+            <button onclick="removeFromCart(${index})">Remove</button>
+        `;
         orderList.appendChild(listItem);
-        total += meal.price;
+        total += meal.price * meal.quantity;
+        totalItems += meal.quantity;
     });
 
-    orderTotal.textContent = total.toFixed(2); // Update total
+    orderTotal.textContent = total.toFixed(2);
+    if (cartCount) {
+        cartCount.textContent = totalItems;
+    }
 }
 
-// Load the cart when the document is ready
+// Remove item from cart
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+    updateOrderSummary();
+}
+
+// Clear entire cart
+function clearCart() {
+    cart = [];
+    sessionStorage.removeItem('cart');
+    updateOrderSummary();
+}
+
+// Prevent order page access if cart is empty
+function goToOrderPage() {
+    if (cart.length === 0) {
+        alert("Your cart is empty! Please add items before proceeding.");
+        return;
+    }
+    window.location.href = "/order";  // Adjust path if needed
+}
+
+// Load cart on page load
 document.addEventListener('DOMContentLoaded', loadCart);
